@@ -116,6 +116,7 @@ const enterPressed = (e) => {
       }, false);
 
       window.addEventListener('resize', listeners.myEfficientFn);
+      helpFunc.cleanSelections();
     })
     .catch(() => {
       errorBox.textContent = 'There are no results for this query. Try once again...';

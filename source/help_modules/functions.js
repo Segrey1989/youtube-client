@@ -91,10 +91,23 @@ const correctMarginLeft = (prevStateElNumber) => {
   images.style.marginLeft = `${-marginLeft}px`;
 };
 
+/* clean the selection of elements after swipe */
+const cleanSelections = () => {
+  const sel = window.getSelection ? window.getSelection() : document.selection;
+  if (sel) {
+    if (sel.removeAllRanges) {
+      sel.removeAllRanges();
+    } else if (sel.empty) {
+      sel.empty();
+    }
+  }
+};
+
 module.exports = {
   changeElemWidth,
   correctMarginLeft,
   defineElPerPage,
   definePageWidth,
   swipeButValue,
+  cleanSelections,
 };
